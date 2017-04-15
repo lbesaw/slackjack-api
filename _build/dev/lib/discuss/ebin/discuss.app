@@ -1,7 +1,7 @@
 {application,discuss,
              [{description,"discuss"},
               {modules,['Elixir.Discuss','Elixir.Discuss.AuthController',
-                        'Elixir.Discuss.Endpoint',
+                        'Elixir.Discuss.Comment','Elixir.Discuss.Endpoint',
                         'Elixir.Discuss.ErrorHelpers',
                         'Elixir.Discuss.ErrorView','Elixir.Discuss.Gettext',
                         'Elixir.Discuss.LayoutView',
