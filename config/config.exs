@@ -26,6 +26,13 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
 
+config :guardian, Guardian,
+  issuer: "Discuss",
+  ttl: { 30, :days},
+  allowed_drift: 2000,
+  secret_key: {Discuss.MySecretKey, :fetch},
+  serializer: Discuss.GuardianSerializer
+
 config :ueberauth, Ueberauth,
   providers: [
     github: { Ueberauth.Strategy.Github, []}

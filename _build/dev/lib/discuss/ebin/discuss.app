@@ -4,7 +4,9 @@
                         'Elixir.Discuss.Comment','Elixir.Discuss.Endpoint',
                         'Elixir.Discuss.ErrorHelpers',
                         'Elixir.Discuss.ErrorView','Elixir.Discuss.Gettext',
+                        'Elixir.Discuss.GuardianSerializer',
                         'Elixir.Discuss.LayoutView',
+                        'Elixir.Discuss.MySecretKey',
                         'Elixir.Discuss.PageController',
                         'Elixir.Discuss.PageView',
                         'Elixir.Discuss.Plugs.RequireAuth',
@@ -20,4 +22,5 @@
               {mod,{'Elixir.Discuss',[]}},
               {applications,[kernel,stdlib,elixir,phoenix,phoenix_pubsub,
                              phoenix_html,cowboy,logger,gettext,phoenix_ecto,
-                             postgrex,ueberauth,ueberauth_github]}]}.
+                             postgrex,ueberauth,ueberauth_github,jose,
+                             poison]}]}.
