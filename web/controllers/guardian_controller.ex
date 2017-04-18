@@ -4,14 +4,15 @@ defmodule Discuss.GuardianController do
 
   plug Guardian.Plug.EnsureAuthenticated, handler: __MODULE__
 
-def gsignin(conn, _params) do
+def gsignin(conn, params) do
   user = Guardian.Plug.current_resource(conn)
-  redirect(conn, to: topic_path(conn, :index))
+  if user != nil do
+    redirect(conn, to: topic_path(conn, :index))
+  end
 end
 
 def unauthenticated(conn, _params) do
   conn
-  |> put_status(401)
   |> put_flash(:error, "Authentication required")
   |> redirect(to: topic_path(conn, :index))
 
