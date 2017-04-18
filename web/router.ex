@@ -10,6 +10,11 @@ defmodule Discuss.Router do
     plug Discuss.Plugs.SetUser
   end
 
+  pipeline :browser_auth do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -18,6 +23,11 @@ defmodule Discuss.Router do
     pipe_through :browser # Use the default browser stack
 
     resources "/", TopicController
+  end
+
+  scope "/test", Discuss do
+    pipe_through [:browser, :browser_auth]
+    get "/test", GuardianController, :gsignin
   end
 
   scope "/auth", Discuss do

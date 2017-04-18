@@ -23,6 +23,7 @@ defmodule Discuss.AuthController do
         conn
         |> put_flash(:info, "Welcome back, #{user.email}!")
         |> put_session(:user_id, user.id)
+        |> Guardian.Plug.sign_in(user)
         |> redirect(to: topic_path(conn, :index))
       {:error, _reason} ->
         conn

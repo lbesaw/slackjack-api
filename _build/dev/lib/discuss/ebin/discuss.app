@@ -4,6 +4,7 @@
                         'Elixir.Discuss.Comment','Elixir.Discuss.Endpoint',
                         'Elixir.Discuss.ErrorHelpers',
                         'Elixir.Discuss.ErrorView','Elixir.Discuss.Gettext',
+                        'Elixir.Discuss.GuardianController',
                         'Elixir.Discuss.GuardianSerializer',
                         'Elixir.Discuss.LayoutView',
                         'Elixir.Discuss.MySecretKey',
