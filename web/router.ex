@@ -15,6 +15,11 @@ defmodule Discuss.Router do
     plug Guardian.Plug.LoadResource
   end
 
+  pipeline :api_auth do
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.LoadResource
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -23,6 +28,11 @@ defmodule Discuss.Router do
     pipe_through :browser # Use the default browser stack
 
     resources "/", TopicController
+  end
+
+  scope "/api", Discuss do
+    pipe_through [:browser, :api_auth]
+    get "/test", ApiController, :logged_in_action
   end
 
   scope "/test", Discuss do
