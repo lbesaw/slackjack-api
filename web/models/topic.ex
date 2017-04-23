@@ -1,5 +1,6 @@
 defmodule Discuss.Topic do
   use Discuss.Web, :model
+  @derive {Poison.Encoder, except: [:__meta__, :__struct__]}
 
   schema "topics" do
     field :title, :string

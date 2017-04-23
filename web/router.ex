@@ -33,6 +33,7 @@ defmodule Discuss.Router do
   scope "/api", Discuss do
     pipe_through [:browser, :api_auth]
     get "/test", ApiController, :logged_in_action
+    get "/user/:id", ApiController, :retrieve_user
   end
 
   scope "/test", Discuss do

@@ -1,6 +1,6 @@
 defmodule Discuss.Comment do
   use Discuss.Web, :model
-
+  @derive {Poison.Encoder, except: [:__meta__, :__struct__]}
   schema "comments" do
     field :content, :string
     belongs_to :user, Discuss.User
